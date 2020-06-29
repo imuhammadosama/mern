@@ -2,3 +2,12 @@
 
 ### GET REQUEST
 GET {{host}} http/1.1
+
+### POST REQUEST
+POST {{host}}/posts http/1.1
+content-type: application/json
+
+{
+    "title": "This is the title of new post.",
+    "description": "This is the description of new post"
+}
