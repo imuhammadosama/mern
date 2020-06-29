@@ -1,0 +1,26 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "This is my MERN stack learning project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imuhammadosama/mern.git"
+  },
+  "keywords": [
+    "MERN",
+    "ExpressJS",
+    "NodeJS",
+    "ReactJS",
+    "MongoDB"
+  ],
+  "author": "Muhammad Osama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imuhammadosama/mern/issues"
+  },
+  "homepage": "https://github.com/imuhammadosama/mern#readme"
+}
