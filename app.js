@@ -3,6 +3,12 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 
+//GETTING ROUTES
+const PostsRoutes = require('./routes/posts.routes');
+
+//SETTING ROUTES
+app.use('/posts', PostsRoutes);
+
 //ROUTES
 app.get('/', (req, res) => {
   res.send('This is the api home directory!');
