@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+//IMPORTING THE MODEL
 const Users = require('../models/users.models');
 
 //GETTING ALL THE USERS
