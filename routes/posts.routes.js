@@ -2,16 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 //ImPORTING THE MODEL
-const Post = require('../models/posts.models');
+const Posts = require('../models/posts.models');
 
 //GETTING GENERAL POSTS
-router.get('/', (req, res) => {
-  res.send('General Posts');
+router.get('/', async (req, res) => {
+  try {
+    const posts = await Posts.find();
+    res.json(posts);
+  } catch (error) {
+    res.json({ message: error });
+  }
 });
 
 //POSTING THE POST
 router.post('/', async (req, res) => {
-  const post = new Post({
+  const post = new Posts({
     title: req.body.title,
     description: req.body.description,
   });
