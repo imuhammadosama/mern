@@ -1,7 +1,10 @@
 @host = http://localhost:5000
 
-### GET REQUEST
-GET {{host}}/users http/1.1
+### ALL POSTS
+GET {{host}}/posts http/1.1
+
+### ONE POST
+GET {{host}}/posts/5efa2dcf8f537425f4de7e09 http/1.1
 
 ### POST REQUEST
 POST {{host}}/posts http/1.1

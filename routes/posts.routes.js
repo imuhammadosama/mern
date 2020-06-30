@@ -28,4 +28,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+//GETTING SPECIFIC POST
+router.get('/:postId', async (req, res) => {
+  console.log(req.params.postId);
+  try {
+    const post = await Posts.findById(req.params.postId);
+    res.json(post);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
 module.exports = router;
