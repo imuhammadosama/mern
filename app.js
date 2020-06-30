@@ -9,9 +9,11 @@ app.use(bodyParser.json());
 
 //GETTING ROUTES
 const PostsRoutes = require('./routes/posts.routes');
+const UsersRoutes = require('./routes/users.routes');
 
 //SETTING ROUTES
 app.use('/posts', PostsRoutes);
+app.use('/users', UsersRoutes);
 
 //ROUTES
 app.get('/', (req, res) => {

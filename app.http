@@ -11,3 +11,13 @@ content-type: application/json
     "title": "This is the title of new post.",
     "description": "This is the description of new post"
 }
+
+### POST REQUEST
+POST {{host}}/users http/1.1
+content-type: application/json
+
+{
+    "name": "Muhammad Osama",
+    "email": "imuhammadosama@outlook.com",
+    "password": "password"
+}
