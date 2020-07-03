@@ -2,7 +2,12 @@ const express = require('express');
 const server = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
+
+//WHITELIST
+server.use(cors());
+var whitelist = ['http://localhost:3000'];
 
 //MIDDLEWARES
 server.use(bodyParser.json());
