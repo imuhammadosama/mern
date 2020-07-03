@@ -1,10 +1,13 @@
 @host = http://localhost:5000
 
+### POST ID
+@postId=5efa31418bd0e022641cb8eb
+
 ### ALL POSTS
 GET {{host}}/posts http/1.1
 
 ### ONE POST
-GET {{host}}/posts/5efa2dcf8f537425f4de7e09 http/1.1
+GET {{host}}/posts/{{postId}} http/1.1
 
 ### POST REQUEST
 POST {{host}}/posts http/1.1
@@ -15,7 +18,19 @@ content-type: application/json
     "description": "This is the description of new post"
 }
 
-### POST REQUEST
+### UPDATING A POST
+PATCH {{host}}/posts/{{postId}} http/1.1
+content-type: application/json
+
+{
+    "title": "Updated Title",
+    "description": "Updated Description"
+}
+
+### DELETING A POST
+DELETE {{host}}/posts/{{postId}} http/1.1
+
+### ENTER A USER
 POST {{host}}/users http/1.1
 content-type: application/json
 
@@ -24,3 +39,4 @@ content-type: application/json
     "email": "imuhammadosama@outlook.com",
     "password": "password"
 }
+

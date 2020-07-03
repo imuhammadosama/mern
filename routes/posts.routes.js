@@ -14,7 +14,18 @@ router.get('/', async (req, res) => {
   }
 });
 
-//POSTING THE POST
+//GETTING SPECIFIC POST
+router.get('/:postId', async (req, res) => {
+  console.log(req.params.postId);
+  try {
+    const post = await Posts.findById(req.params.postId);
+    res.json(post);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
+//SUMBITTING A POST
 router.post('/', async (req, res) => {
   const post = new Posts({
     title: req.body.title,
@@ -28,12 +39,26 @@ router.post('/', async (req, res) => {
   }
 });
 
-//GETTING SPECIFIC POST
-router.get('/:postId', async (req, res) => {
-  console.log(req.params.postId);
+//UPDATING A POST
+router.patch('/:postId', async (req, res) => {
   try {
-    const post = await Posts.findById(req.params.postId);
-    res.json(post);
+    const updatedPost = await Posts.updateOne(
+      { _id: req.params.postId },
+      {
+        $set: { title: req.body.title, description: req.body.description },
+      }
+    );
+    res.json(updatedPost);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
+//DELETING A POST
+router.delete('/:postId', async (req, res) => {
+  try {
+    const deletedPost = await Posts.deleteOne({ _id: req.body.postId });
+    res.json(deletedPost);
   } catch (error) {
     res.json({ message: error });
   }

@@ -1,22 +1,22 @@
 const express = require('express');
-const app = express();
+const server = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv/config');
 
 //MIDDLEWARES
-app.use(bodyParser.json());
+server.use(bodyParser.json());
 
 //GETTING ROUTES
 const PostsRoutes = require('./routes/posts.routes');
 const UsersRoutes = require('./routes/users.routes');
 
 //SETTING ROUTES
-app.use('/posts', PostsRoutes);
-app.use('/users', UsersRoutes);
+server.use('/posts', PostsRoutes);
+server.use('/users', UsersRoutes);
 
 //ROUTES
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
   res.send('This is the api home directory!');
 });
 
@@ -30,6 +30,6 @@ mongoose.connect(process.env.DB_CONNECTION, () => {
 });
 
 //SERVER IS LISTENING
-app.listen(5000, () => {
+server.listen(5000, () => {
   console.log('Server is listening to Port 5000...');
 });
